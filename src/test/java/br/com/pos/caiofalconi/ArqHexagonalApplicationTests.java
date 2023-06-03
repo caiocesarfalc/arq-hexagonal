@@ -1,4 +1,4 @@
-package br.com.pos.arqhexagonal;
+package br.com.pos.caiofalconi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
