@@ -1,5 +1,8 @@
 package br.com.pos.caiofalconi.adapters.output.h2.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import br.com.pos.caiofalconi.adapters.output.h2.entity.ContactEntity;
@@ -25,6 +28,22 @@ public class ContactRepositoryService implements IContactRepositoryPort {
 				.email(entity.getEmail())
 				.phone(entity.getPhone())
 				.build();
+	}
+	
+	public List<Contact> listAll() {
+		
+		List<ContactEntity> listContactEntity = contactRepository.findAll();
+		
+		List<Contact> listContact = new ArrayList<Contact>();
+		
+		listContactEntity.forEach(entity -> listContact.add(Contact.builder()
+				.id(entity.getId())
+				.name(entity.getName())
+				.email(entity.getEmail())
+				.phone(entity.getPhone())
+				.build()));
+		
+		return listContact;
 	}
 
 }
